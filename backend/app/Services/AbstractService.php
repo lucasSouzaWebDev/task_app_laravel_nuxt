@@ -25,15 +25,11 @@ abstract class AbstractService
 
     public function create(array $data)
     {
-        // apply business rules.
-
         return $this->entityRepository->create($data);
     }
 
     public function update(int $id, array $categorie)
     {
-        // apply business rules.
-
         $entity = $this->entityRepository->find($id);
 
         if (!$entity) {
@@ -46,8 +42,6 @@ abstract class AbstractService
 
     public function destroy(int $id)
     {
-        // apply business rules.
-
         $entity = $this->entityRepository->find($id);
         if (!$entity) {
             return response()->json(['message' => 'Register Not Found.'], 404);

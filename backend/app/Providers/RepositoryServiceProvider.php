@@ -3,10 +3,12 @@
 namespace App\Providers;
 
 use App\Repositories\Contracts\{
-    ResourceRepositoryInterface
+    TaskRepositoryInterface,
+    UserRepositoryInterface
 };
 use App\Repositories\Eloquent\{
-    ResourceRepository,
+    TaskRepository,
+    UserRepository,
 };
 
 use Illuminate\Support\ServiceProvider;
@@ -21,8 +23,12 @@ class RepositoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            ResourceRepositoryInterface::class,
-            ResourceRepository::class,
+            TaskRepositoryInterface::class,
+            TaskRepository::class,
+        );
+        $this->app->bind(
+            UserRepositoryInterface::class,
+            UserRepository::class,
         );
     }
 

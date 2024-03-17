@@ -19,9 +19,9 @@ class AbstractRepository implements AbstractRepositoryInterface
 
     public function getAll()
     {
-        return Cache::remember('resources', self::TTL, function () {
-            return $this->entity::paginate(); 
-        });
+        return $this->entity::paginate(); 
+        /* return Cache::remember('resources', self::TTL, function () {
+        }); */
     }
 
     public function find(int $id)

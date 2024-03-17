@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Resources\ResourceResource;
 use App\Http\Controllers\Controller;
 use App\Services\AbstractService;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class AbstractController extends Controller
 {
@@ -18,13 +18,13 @@ class AbstractController extends Controller
     public function index()
     {
         $categories = $this->abstractService->getAll();
-        return ResourceResource::collection($categories);
+        return JsonResource::collection($categories);
     }
 
     public function show($id)
     {
         $category = $this->abstractService->find($id);
-        return new ResourceResource($category);
+        return new JsonResource($category);
     }
 
     public function destroy($id)
