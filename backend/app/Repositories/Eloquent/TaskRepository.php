@@ -2,14 +2,13 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Repositories\Contracts\TaskRepositoryInterface;
+use App\Core\Task\Services\Interfaces\TaskRepository as TaskRepositoryInterface;
 use App\Models\Task;
-use Illuminate\Support\Facades\Cache;
 
 class TaskRepository extends AbstractRepository implements TaskRepositoryInterface
 {
-    public function __construct(Task $task)
+    public function __construct(Task $entity)
     {
-        parent::__construct($task);
+        parent::__construct($entity);
     }
 }

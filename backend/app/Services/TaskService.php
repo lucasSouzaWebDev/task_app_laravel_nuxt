@@ -2,18 +2,28 @@
 
 namespace App\Services;
 
-use App\Repositories\Contracts\TaskRepositoryInterface;
+use App\Core\Task\Services\GetAllTasks;
+use App\Models\Task;
+use App\Repositories\Eloquent\TaskRepository;
 
-class TaskService extends AbstractService
+class TaskService
 {
-    public function __construct(TaskRepositoryInterface $repository)
+    private $repository;
+    public function __construct()
     {
-        parent::__construct($repository);
+        $model = new Task();
+        $this->repository = new TaskRepository($model);
     }
 
     public function create(array $data)
     {
         $data['user_id'] = 1;
-        return $this->entityRepository->create($data);
+        //return $this->repository->create($data);
+    }
+
+    public function getAll()
+    {
+        $allTasks = (new GetAllTasks($this->repository))->execute();
+        return $allTasks;
     }
 }
