@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Cache;
 
 class AbstractRepository implements AbstractRepositoryInterface
 {
-    private $entity;
+    protected $entity;
 
     private const TTL = 60 * 60 * 24;
 
@@ -20,8 +20,6 @@ class AbstractRepository implements AbstractRepositoryInterface
     public function getAll()
     {
         return $this->entity::paginate(); 
-        /* return Cache::remember('resources', self::TTL, function () {
-        }); */
     }
 
     public function find(int $id)
