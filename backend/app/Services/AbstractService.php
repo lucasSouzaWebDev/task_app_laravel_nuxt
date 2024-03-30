@@ -28,7 +28,7 @@ abstract class AbstractService
         return $this->entityRepository->create($data);
     }
 
-    public function update(int $id, array $categorie)
+    public function update(int $id, array $data)
     {
         $entity = $this->entityRepository->find($id);
 

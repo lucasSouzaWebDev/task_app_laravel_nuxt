@@ -8,5 +8,5 @@ interface Repository
     public function find(int $id);
     public function create(array $data);
     public function update(object $entity, array $data);
-    public function destroy(object $entity);
+    public function delete(object $entity);
 }

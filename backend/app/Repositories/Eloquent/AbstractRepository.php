@@ -23,7 +23,7 @@ class AbstractRepository implements TaskRepository
 
     public function find(int $id)
     {
-        return $this->entity::findOrFail($id);
+        return $this->entity::find($id);
     }
 
     public function create(array $data)
@@ -36,7 +36,7 @@ class AbstractRepository implements TaskRepository
         return $entity->update($data);
     }
 
-    public function destroy(object $entity)
+    public function delete(object $entity)
     {
         return $entity->delete();
     }

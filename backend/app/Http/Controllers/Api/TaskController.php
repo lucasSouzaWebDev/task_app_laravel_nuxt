@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Core\Shared\Exceptions\NotFoundException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
@@ -20,19 +21,36 @@ class TaskController extends Controller
 
     public function index()
     {
-        $categories = $this->service->getAll();
-        return JsonResource::collection($categories);
+        $tasks = $this->service->getAll();
+        return JsonResource::collection($tasks);
+    }
+
+    public function show($id)
+    {
+        try{
+            $task = $this->service->find($id);
+            return new JsonResource($task);
+        } catch(NotFoundException $e){
+            return response()->json(['error' => $e->getMessage()], 404);
+        }
+        
     }
 
     public function store(StoreTaskRequest $request)
     {
-        $category = $this->service->create($request->all());
-        return new JsonResource($category);
+        $task = $this->service->create($request->all());
+        return new JsonResource($task);
     }
 
     public function update(UpdateTaskRequest $request, $id)
     {
-        $category = $this->service->update($id, $request->all());
+        $task = $this->service->update($id, $request->all());
+        return $task;
+    }
+
+    public function destroy($id)
+    {
+        $category = $this->service->delete($id);
         return $category;
     }
 }

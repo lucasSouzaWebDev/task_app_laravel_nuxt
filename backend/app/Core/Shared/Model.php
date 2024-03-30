@@ -14,5 +14,5 @@ abstract class Model
 
             $this->$param = $value;
         }
-    }        
+    }
 }
