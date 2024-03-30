@@ -2,13 +2,13 @@
 
 namespace App\Services;
 
-use App\Core\Task\Services\Interfaces\TaskRepository;
+use App\Core\Shared\Repository;
 
 abstract class AbstractService
 {
     protected $entityRepository;
 
-    public function __construct(TaskRepository $resourceRepository)
+    public function __construct(Repository $resourceRepository)
     {
         $this->entityRepository = $resourceRepository;
     }

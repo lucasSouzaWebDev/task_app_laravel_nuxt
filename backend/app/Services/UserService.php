@@ -2,11 +2,11 @@
 
 namespace App\Services;
 
-use App\Repositories\Contracts\UserRepositoryInterface;
+use App\Core\User\Services\Interfaces\UserRepository;
 
 class UserService extends AbstractService
 {
-    public function __construct(UserRepositoryInterface $repository)
+    public function __construct(UserRepository $repository)
     {
         parent::__construct($repository);
     }

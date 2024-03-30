@@ -2,14 +2,13 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Repositories\Contracts\UserRepositoryInterface;
+use App\Core\User\Services\Interfaces\UserRepository as UserRepositoryInterface;
 use App\Models\User;
-use Illuminate\Support\Facades\Cache;
 
 class UserRepository extends AbstractRepository implements UserRepositoryInterface
 {
-    public function __construct(User $task)
+    public function __construct(User $user)
     {
-        parent::__construct($task);
+        parent::__construct($user);
     }
 }
