@@ -2,11 +2,10 @@
 
 namespace App\Repositories\Eloquent;
 
-use App\Repositories\Contracts\AbstractRepositoryInterface;
+use App\Core\Task\Services\Interfaces\TaskRepository;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Cache;
 
-class AbstractRepository implements AbstractRepositoryInterface
+class AbstractRepository implements TaskRepository
 {
     protected $entity;
 

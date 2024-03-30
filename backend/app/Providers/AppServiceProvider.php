@@ -25,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Resource::observe(ResourceObserver::class);
+        //Resource::observe(ResourceObserver::class);
     }
 }

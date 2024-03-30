@@ -2,10 +2,7 @@
 
 namespace App\Providers;
 
-use App\Repositories\Contracts\{
-    TaskRepositoryInterface,
-    UserRepositoryInterface
-};
+use App\Core\Task\Services\Interfaces\TaskRepository as TaskRepositoryInterface;
 use App\Repositories\Eloquent\{
     TaskRepository,
     UserRepository,
@@ -26,10 +23,11 @@ class RepositoryServiceProvider extends ServiceProvider
             TaskRepositoryInterface::class,
             TaskRepository::class,
         );
-        $this->app->bind(
+        
+        /* $this->app->bind(
             UserRepositoryInterface::class,
             UserRepository::class,
-        );
+        ); */
     }
 
     /**

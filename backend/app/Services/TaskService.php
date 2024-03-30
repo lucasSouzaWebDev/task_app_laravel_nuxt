@@ -18,7 +18,7 @@ class TaskService
     public function create(array $data)
     {
         $data['user_id'] = 1;
-        //return $this->repository->create($data);
+        return $this->repository->create($data);
     }
 
     public function getAll()
